@@ -15,7 +15,7 @@ def home(request):
 
 def new_search(request):
     search_item = request.POST.get('search')
-    Search.objects.create(search_field=search_item)
+    # Search.objects.create(search_field=search_item)
     required_search_url = BASE_URL_CRAIGSLIST.format(quote_plus(search_item))
     response = requests.get(required_search_url)
     soup = BeautifulSoup(response.text, features='html.parser')
