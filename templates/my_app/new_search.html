@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{{ search_item }}
+  <div class="row">
+    {% for item in final_postings %}
+    <div class="col s4 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{item.3}}">
+          <span class="card-title">{{ search_item }}</span>
+          <div class="card-content">
+          <p>{{ item.0 }}</p>
+        </div>
+          <div class="card-content">
+          <p>Price:{{ item.2 }}</p>
+        </div>
+          <div class="card-action">
+          <a href="{{ item.1 }}">View Item</a>
+        </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 {% endblock %}
